@@ -11,6 +11,17 @@
     justify-content: space-between;
     align-items: center;
 
+    > div {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      button {
+        height: 40px;
+      }
+    }
+
     > img {
       max-height: 45px;
     }
@@ -23,32 +34,6 @@
 
     .question-list{
       margin-top: 32px;
-
-      button {
-        border: 0;
-        background: transparent;
-  
-        &.like-button{
-          display: flex;
-          align-items: flex-end;
-          color: #737380;
-  
-          gap: 6px;
-          transition: filter 0.2;
-  
-          &.liked {
-            color: #835afd;
-  
-            svg path {
-              stroke: #835afd;
-            }
-          }
-  
-          &:hover {
-            filter: brightness(0.8);
-          }
-        }
-      }
     }
 
     .room-tittle{
@@ -108,7 +93,6 @@
             font-size: 14px;
           }
         }
-
 
         p {
           font-size: 14px;
