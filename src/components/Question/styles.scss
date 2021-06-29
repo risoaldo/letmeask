@@ -5,6 +5,8 @@
 
   padding: 24px;
 
+
+
   & + .question {
     margin: 24px 0 24px 0;
   }
@@ -23,6 +25,8 @@
       display: flex;
       align-items: center;
 
+
+
       img {
         width: 32px;
         height: 32px;
@@ -34,6 +38,11 @@
         color: #737380;
         font-size: 14px;
       }
+    }
+
+    .options{
+      display: flex;
+      gap: 12px;
     }
 
 
