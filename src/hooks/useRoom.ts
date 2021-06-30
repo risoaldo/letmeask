@@ -10,7 +10,7 @@ type FirebaseQuestions = Record<string, {
   }
   content: string;
   isAnswered: boolean;
-  isHiglited: boolean;
+  isHighlighted: boolean;
   likes: Record<string, {
     author: string;
   }>
@@ -25,12 +25,13 @@ type Questions = {
   }
   content: string;
   isAnswered: boolean;
-  isHiglited: boolean;
+  isHighlighted: boolean;
   likeCount: number;
   likeId: string | undefined;
 }
 
 export function useRoom(roomId: string, newQuestion: string) {
+
   const { user } = useAuth();
   const [questions, setQuestions] = useState<Questions[]>([]);
   const [title, setTitle] = useState('');
@@ -47,8 +48,8 @@ export function useRoom(roomId: string, newQuestion: string) {
           id: key,
           content: value.content,
           author: value.author,
-          isHiglited: value.isHiglited,
           isAnswered: value.isAnswered,
+          isHighlighted: value.isHighlighted,
           likeCount: Object.values(value.likes ?? {}).length,
           likeId: Object.entries(value.likes ?? {}).find(([key, like]) => like.author === user?.id)?.[0],
         }

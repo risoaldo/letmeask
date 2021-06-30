@@ -44,7 +44,6 @@ export function AdminRoom() {
   }
 
   async function handleHighlightQuestion(questionId: string) {
-
     await database.ref(`rooms/${params.id}/questions/${questionId}`).update({
       isHighlighted: true
     });
@@ -52,7 +51,6 @@ export function AdminRoom() {
   }
 
   async function handleAnswerQuestion(questionId: string) {
-
     await database.ref(`rooms/${params.id}/questions/${questionId}`).update({
       isAnswered: true
     });
@@ -89,25 +87,39 @@ export function AdminRoom() {
                 key={question.id}
                 content={question.content}
                 author={question.author}
+                isAnswered={question.isAnswered}
+                isHighlighted={question.isHighlighted}
               >
                 <button
                   type="button"
                   onClick={() => handleDeleteQuestion(question.id)}
+                  className="drop"
                 >
                   <img src={deleteImg} alt="deletar" />
                 </button>
-                <button
-                  type="button"
-                  onClick={() => handleHighlightQuestion(question.id)}
-                >
-                  <img src={checkImg} alt="destacar pergunta" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleAnswerQuestion(question.id)}
-                >
-                  <img src={answerImg} alt="marcar como respondida" />
-                </button>
+
+                {
+                  !question.isAnswered &&
+                  <>
+
+                    <button
+                      type="button"
+                      onClick={() => handleAnswerQuestion(question.id)}
+                      className="higlight"
+                    >
+                      <img src={checkImg} alt="destacar pergunta" />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleHighlightQuestion(question.id)}
+                      className="answered"
+                    >
+                      <img src={answerImg} alt="marcar como respondida" />
+                    </button>
+                  </>
+                }
+
               </Question>
             )
           })}
