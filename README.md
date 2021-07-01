@@ -12,3 +12,6 @@ Esse projeto foi desenvolvido usado as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org/)
 - [Firebase Authentication](https://firebase.google.com/products/auth)
 - [Firebase Realtime Database](https://firebase.google.com/products/realtime-database)
+
+
+<p align="center">👍👋</p>
